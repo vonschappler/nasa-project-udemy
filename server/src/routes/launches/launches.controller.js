@@ -5,9 +5,13 @@ const {
   abortLaunch,
 } = require('../../models/launches.model')
 
+const {getPagination} = require('../../services/query')
+
 async function httpGetLaunches(req, res) {
+  const {skip, limit} =  getPagination(req.query)
+  const launches = await getAllLaunches(skip, limit)
   return res.status(200)
-    .json(Array.from(await getAllLaunches()))
+    .json(launches)
 }
 
 async function httpSubmitLaunch(req, res) {
