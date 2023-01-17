@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:8000'
+const API_URL = ''
 const API_VERSION = 'v1'
 
 // Load planets and return as JSON.

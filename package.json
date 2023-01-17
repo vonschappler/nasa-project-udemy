@@ -14,9 +14,10 @@
     "test-server": "npm run test --prefix server",
     "test-client": "npm run test --watchAll --prefix client",
     "test": "concurrently 'npm:test-server' 'npm:test-client'",
-    "build-client": "npm run build --prefix client",
-    "deploy": "concurrently 'npm:build-client' 'npm:server'",
-    "deploy-cluster": "concurrently 'npm:build-client' 'npm:cluster'"
+    "build": "npm run build --prefix client",
+    "build-docker": "npm run build-client --prefix client",
+    "deploy": "concurrently 'npm:build' 'npm:server'",
+    "deploy-cluster": "concurrently 'npm:build' 'npm:cluster'"
   },
   "author": "",
   "license": "ISC",
